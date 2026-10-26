@@ -62,3 +62,11 @@ archives, not an independent upstream signature. Preserve the upstream LGPL
 license and the embedded framework license material.
 
 Run preparation checks with `python3 -B scripts/test_prepare.py`.
+
+## Release automation
+
+Pushing a version tag such as `3.7.4` runs the macOS release workflow. It tests
+packaging, rebuilds from the pinned official archives, and checks the ZIP against
+both the manifest checksum and the expected release URL before publishing.
+Enable Actions in a new fork before pushing a release tag. When sending this
+change upstream, update `Package.swift` to the upstream release URL first.
