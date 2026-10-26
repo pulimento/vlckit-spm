@@ -65,8 +65,11 @@ Run preparation checks with `python3 -B scripts/test_prepare.py`.
 
 ## Release automation
 
-Pushing a version tag such as `3.7.4` runs the macOS release workflow. It tests
-packaging, rebuilds from the pinned official archives, and checks the ZIP against
-both the manifest checksum and the expected release URL before publishing.
-Enable Actions in a new fork before pushing a release tag. When sending this
-change upstream, update `Package.swift` to the upstream release URL first.
+The release workflow on `update-vlckit-3.7.4` tests packaging and rebuilds from
+SHA256-pinned official archives. It records the generated ZIP checksum in
+`Package.swift`, commits that manifest, then creates the `3.7.4` tag and release.
+A checksum identifies the exact published ZIP; compression and Xcode metadata
+can vary between build environments even with identical official inputs.
+An existing release tag must never be overwritten. For a subsequent release,
+update the pinned inputs, release version, manifest URL and workflow trigger.
+When sending this change upstream, update the manifest release URL first.
