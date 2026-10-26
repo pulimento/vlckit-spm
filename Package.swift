@@ -3,7 +3,12 @@
 
 import PackageDescription
 
-let vlcBinary = Target.binaryTarget(name: "VLCKit-all", url: "https://github.com/tylerjonesio/vlckit-spm/releases/download/3.6.0/VLCKit-all.xcframework.zip", checksum: "5da4747e001900bbb4153f58db2be4695096c9c2350aea00376ad67b39c053f6")
+// Repackaged from pinned official VideoLAN 3.7.4 archives; see sources.json.
+let vlcBinary = Target.binaryTarget(
+    name: "VLCKit-all",
+    url: "https://github.com/pulimento/vlckit-spm/releases/download/3.7.4/VLCKit-all.xcframework.zip",
+    checksum: "0307c82415c38546d3a96f453a3687342833d1c6ab4246e5fa0d629c98d16cb7"
+)
 
 let package = Package(
     name: "vlckit-spm",
